@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+body{
+    margin: 0;
+    background: url('https://www.showmetech.com.br/wp-content/uploads/2017/01/outrun_wallpaper__10_-2017-01-25-0516-768x432.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    height: 100%;
+}
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+}
+
+[racer]{
+    position: relative;
+    background-color:grey;
+    border-left: 20px;
+    border-right: 20px;
+    border-top: 0;
+    border-bottom: 0;
+    border-style: solid;
+    border-color: white;
+    height: 100%;
+    width: 500px;
+    overflow: hidden;
+}
+
+[racer] h1 {
+    text-align: center;
+}
+
+.car-player{
+    position: absolute;
+    width: 15%;
+    top: calc(80% - 10px);
+    right: 200px
+}
+
+.car-enemy{
+    position: absolute;
+    width: 15%;
+}
+
+@media(max-width:550px){
+    [racer]{
+        width: 400px;
+    }
+}
