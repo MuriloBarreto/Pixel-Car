@@ -1,8 +1,8 @@
-# Flappy Bird 🚗
+# Pixel Car 🚗
 
 ## Table of contents
 
-- [Flappy Bird 🚗](#flappy-bird-)
+- [Pixel Car 🚗](#Pixel Car-)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [Screenshot](#screenshot)
