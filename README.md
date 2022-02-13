@@ -2,7 +2,7 @@
 
 ## Table of contents
 
-- [Pixel Car 🚗](#Pixel Car-)
+- [Pixel Car 🚗](#pixel-car-)
   - [Table of contents](#table-of-contents)
   - [Overview](#overview)
     - [Screenshot](#screenshot)
@@ -14,7 +14,7 @@
 
 ### Screenshot
 
-![](./img/screenshot.png)
+![](./.github/images/screenshot.png)
 
 ### Built with
 
