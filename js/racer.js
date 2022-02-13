@@ -1,7 +1,44 @@
+
 function criarElemento(tagName, className) {
     const elem = document.createElement(tagName)
     elem.className = className
     return elem
+}
+
+function Faixa(y) {
+    this.elemento = criarElemento("div", "faixa")
+
+    this.getAltura = () => this.elemento.clientHeight
+
+    this.getY = () => parseInt(this.elemento.style.bottom.split('px')[0])
+    this.setY = y => this.elemento.style.bottom = `${y}px`
+
+    this.setY(y)
+}
+
+function Faixas(alturaJogo, espaco){
+    this.faixas = [
+        new Faixa(alturaJogo),
+        new Faixa(alturaJogo + espaco),
+        new Faixa(alturaJogo + espaco * 2),
+        new Faixa(alturaJogo + espaco * 3),
+        new Faixa(alturaJogo + espaco * 4),
+        new Faixa(alturaJogo + espaco * 5),
+        new Faixa(alturaJogo + espaco * 6),
+        new Faixa(alturaJogo + espaco * 7),
+        new Faixa(alturaJogo + espaco * 8)
+    ]
+
+    const des = 5
+
+    this.animar = () => {
+        this.faixas.forEach(faixa => {
+            faixa.setY(faixa.getY() - des)
+            if(faixa.getY() < -faixa.getAltura()){
+                faixa.setY(faixa.getY() + espaco * this.faixas.length)
+            }
+        })
+    }
 }
 
 function CarroInimigo(x) {
@@ -127,7 +164,11 @@ function PixelCar(){
 
     const carrosEnemy = new Carros(altura,500)
     const carroPlayer = new PlayerCar(altura,largura)
+    const faixasJogo = new Faixas(0,200)
 
+    faixasJogo.faixas.forEach(faixa => {
+        areaDoJogo.appendChild(faixa.elemento)
+    })
     areaDoJogo.appendChild(carroPlayer.elemento)
     carrosEnemy.cars.forEach(car => {
         areaDoJogo.appendChild(car.elemento)
@@ -137,6 +178,7 @@ function PixelCar(){
         const temp = setInterval(() => {
             carrosEnemy.animar()
             carroPlayer.animar()
+            faixasJogo.animar()
 
             if(colidiu(carroPlayer,carrosEnemy)){
                 clearInterval(temp)
