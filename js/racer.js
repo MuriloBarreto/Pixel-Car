@@ -43,7 +43,7 @@ function Faixas(alturaJogo, espaco){
 
 function CarroInimigo(x) {
     this.elemento = criarElemento('img', 'car-enemy')
-    this.elemento.src = `img/pixel-car${Math.floor(Math.random() * (4 - 1)) + 1}.png`
+    this.elemento.src = `./img/pixel-car${Math.floor(Math.random() * (4 - 1)) + 1}.png`
     
     this.sortearPosicao = () => {
         const posicao = Math.random() * (390 - 0)
@@ -85,7 +85,7 @@ function Carros(altura, espaco) {
 function PlayerCar(alturaJogo, larguraJogo) {
     let comando = ''
     this.elemento = criarElemento("img", "car-player")
-    this.elemento.src = "img/player.png"
+    this.elemento.src = "./img/player.png"
 
     this.getX = () => parseInt(this.elemento.style.left.split('px')[0])
     this.setX = x => this.elemento.style.left = `${x}px`
