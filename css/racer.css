@@ -1,27 +1,31 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
 }
 
-html{
+html {
     height: 100%;
 }
-body{
+
+body {
     background: url('https://www.showmetech.com.br/wp-content/uploads/2017/01/outrun_wallpaper__10_-2017-01-25-0516-768x432.jpg');
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     height: 100%;
+    overflow: hidden;
+    
 }
-.conteudo{
+
+.conteudo {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100%;
 }
 
-[racer]{
+[racer] {
     position: relative;
-    background-color:gray;
+    background-color: gray;
     border-left: 20px;
     border-right: 20px;
     border-top: 0;
@@ -34,22 +38,80 @@ body{
     overflow: hidden;
 }
 
-.car-player{
+.car-player {
     position: absolute;
     width: 15%;
     right: 200px
 }
 
-.car-enemy{
+.car-enemy {
     position: absolute;
     width: 15%;
-    z-index: 100;
+    transform: rotate(180deg);
+    z-index: 0;
 }
 
-.faixa{
+.faixa {
     position: absolute;
     background-color: #fff;
     width: 20px;
     height: 120px;
     left: calc(100% / 2);
+}
+
+.triangulo-para-direita {
+    position: absolute;
+    width: 0;
+    bottom: 30px;
+    right: 30px;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-left: 40px solid #ABA8B2;
+    z-index: 100;
+}
+
+.triangulo-para-esquerda {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-right: 40px solid #ABA8B2;
+    z-index: 100;
+}
+
+.triangulo-para-direita:active{
+    border-left: 40px solid yellow;
+}
+
+.triangulo-para-esquerda:active{
+    border-right: 40px solid yellow;
+}
+
+
+@media (min-width:320px) {
+
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+    [racer] {
+        width: 300px;
+    }
+}
+
+@media (min-width:600px) {
+
+    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+    [racer] {
+        width: 400px;
+    }
+}
+
+@media (min-width:1025px) {
+
+    /* big landscape tablets, laptops, and desktops */
+    [racer] {
+        width: 500px;
+    }
 }

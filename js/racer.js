@@ -84,8 +84,11 @@ function Carros(altura, espaco) {
 
 function PlayerCar(alturaJogo, larguraJogo) {
     let comando = ''
+    this.setaEsquerda = criarElemento('div','triangulo-para-esquerda')
+    this.setaDireita = criarElemento('div','triangulo-para-direita')
     this.elemento = criarElemento("img", "car-player")
     this.elemento.src = "./.github/images/player.png"
+
 
     this.getX = () => parseInt(this.elemento.style.left.split('px')[0])
     this.setX = x => this.elemento.style.left = `${x}px`
@@ -93,17 +96,40 @@ function PlayerCar(alturaJogo, larguraJogo) {
     this.getY = () => parseInt(this.elemento.style.bottom.split('px')[0])
     this.setY = y => this.elemento.style.bottom = `${y}px`
 
+    this.setaDireita.ontouchstart = e =>{
+        comando = 'right'
+        this.elemento.style.transform = 'rotate(20deg)'
+    }
+    this.setaEsquerda.ontouchstart = e =>{
+        comando = 'left'
+        this.elemento.style.transform = 'rotate(-20deg)'
+    }
+
+    this.setaDireita.ontouchend = e =>{
+        comando = 'f'
+        this.elemento.style.transform = 'rotate(0)'
+    }
+    this.setaEsquerda.ontouchend = e =>{
+        comando = 'f'
+        this.elemento.style.transform = 'rotate(0)'
+    }
+
+
     window.onkeydown = e => {
         if (e.keyCode == '37') {
+            this.setaEsquerda.style.borderRight = '40px solid yellow'
             comando = "left"
             this.elemento.style.transform = 'rotate(-20deg)'
         } else if (e.keyCode == '39') {
+            this.setaDireita.style.borderLeft = '40px solid yellow'
             comando = "right"
             this.elemento.style.transform = 'rotate(20deg)'
         }
     }
 
     window.onkeyup = e => {
+        this.setaDireita.style.borderLeft = '40px solid #ABA8B2'
+        this.setaEsquerda.style.borderRight = '40px solid #ABA8B2'
         comando = "f"
         this.elemento.style.transform = 'rotate(0)'
     }
@@ -170,6 +196,8 @@ function PixelCar(){
         areaDoJogo.appendChild(faixa.elemento)
     })
     areaDoJogo.appendChild(carroPlayer.elemento)
+    areaDoJogo.appendChild(carroPlayer.setaDireita)
+    areaDoJogo.appendChild(carroPlayer.setaEsquerda)
     carrosEnemy.cars.forEach(car => {
         areaDoJogo.appendChild(car.elemento)
     })
