@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    background: url('https://www.showmetech.com.br/wp-content/uploads/2017/01/outrun_wallpaper__10_-2017-01-25-0516-768x432.jpg');
+    background-image: url('../.github/images/wallpaper.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -89,6 +89,23 @@ body {
 
 .triangulo-para-esquerda:active{
     border-right: 40px solid yellow;
+}
+
+.recomecar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: rgb(128, 128, 128, 0.60);
+}
+
+.recomecar img {
+    background-color: yellowgreen;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 100;
 }
 
 

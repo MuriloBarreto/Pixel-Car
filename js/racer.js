@@ -5,6 +5,19 @@ function criarElemento(tagName, className) {
     return elem
 }
 
+function Restart(){
+    this.elemento = criarElemento('div','recomecar')
+
+    const botao = criarElemento('img')
+    botao.src = 'https://img.icons8.com/external-becris-lineal-becris/64/000000/external-refresh-mintab-for-ios-becris-lineal-becris.png'
+
+    botao.onclick = () =>{
+        document.location.reload(true)
+    }
+
+    this.elemento.appendChild(botao)
+}
+
 function Faixa(y) {
     this.elemento = criarElemento("div", "faixa")
 
@@ -191,6 +204,7 @@ function PixelCar(){
     const carrosEnemy = new Carros(altura,500)
     const carroPlayer = new PlayerCar(altura,largura)
     const faixasJogo = new Faixas(0,200)
+    const restart = new Restart()
 
     faixasJogo.faixas.forEach(faixa => {
         areaDoJogo.appendChild(faixa.elemento)
@@ -210,6 +224,7 @@ function PixelCar(){
 
             if(colidiu(carroPlayer,carrosEnemy)){
                 clearInterval(temp)
+                areaDoJogo.appendChild(restart.elemento)
             }
         },20)
     }
